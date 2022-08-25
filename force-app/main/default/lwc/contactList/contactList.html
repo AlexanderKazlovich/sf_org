@@ -1,0 +1,30 @@
+<template>
+    <lightning-record-view-form record-id={recordId} object-api-name="Account">
+        <lightning-card>
+            
+            <template if:true={contacts.data}>
+                <lightning-layout multiple-rows>
+                    <template for:each={contacts.data} for:item="item" for:index="index">
+                    <lightning-layout-item key={item.Id} size="12" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                                      
+                    <div class="card">
+                        <img src="https://i.ibb.co/LxXRv4h/cards-Contact.png" alt="Avatar" style="width:150px;height:150px;">
+                        
+                        <div class="card-body">
+                          <h2 class="card-title">{item.FirstName}&nbsp;{item.LastName}</h2>
+                          <p class="card-text">E-mail: {item.Email}</p>
+                          <p class="card-text">Tel: {item.Phone}</p>                        
+                        </div>
+                      </div>    
+                    </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+
+            <template if:true={errors}>
+                <p>{errors}</p>
+            </template>
+            
+        </lightning-card>
+    </lightning-record-view-form>
+</template>
