@@ -21,7 +21,6 @@ public class AccountsCallouts {
             System.debug('Account Website: ' + getAccountWebsite);
                 
             }
-        //System.debug(response.getBody());
         return response;
         }
         
