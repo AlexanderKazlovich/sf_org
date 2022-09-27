@@ -1,22 +1,16 @@
 public class AccountApex {
-    @auraEnabled
-    public static list<account> fetchAccount(){
-        list<account> accList= new list<account>();
-        accList=[select name from account];
-        return accList;
+    @AuraEnabled
+    public static List<Account> getAccounts() {
+        return [SELECT Name FROM Account];
     }
     
-      @auraEnabled
-    public static list<contact> getContact(id accid){
-        list<contact> conList= new list<contact>();
-        conList=[select lastname from contact where accountid =:accid];
-        return conList;
+    @AuraEnabled
+    public static List<Contact> getContactById(Id accountId) {
+        return [SELECT LastName FROM Contact WHERE Accountid = :accountId];
     }
     
-    @auraEnabled
-    public static list<opportunity> getopportunity(id accid){
-        list<opportunity> opList = new list<opportunity>();
-        opList = [select name from opportunity where accountid =: accid];
-        return opList;
+    @AuraEnabled
+    public static List<Opportunity> getOpportunityByAccountId(Id accountId) {
+        return [SELECT Name FROM Opportunity WHERE Accountid =: accountId];
     }
 }
